@@ -1,4 +1,4 @@
-![MongoDb](mongodb.png)
+![MongoDb](../img/mongodb.png)
 # MongoDb start
 
    1. Установить:    

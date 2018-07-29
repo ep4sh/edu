@@ -10,8 +10,7 @@
 
 ```# mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1```
 
-#### Настоятельно рекомендуется использовать файл конфигурации:
-/etc/mdaadm.conf
+#### Настоятельно рекомендуется использовать файл конфигурации: _/etc/mdaadm.conf_
 
 ```
 #sh -c 'echo DEVICE /dev/sdb1 /dev/sdc1 /dev/sdd1 > /etc/mdadm.conf'

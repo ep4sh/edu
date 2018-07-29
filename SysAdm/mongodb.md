@@ -1,4 +1,6 @@
+![MongoDb](mongodb.png)
 # MongoDb start
+
    1. Установить:    
    
    ```apt install mongodb```

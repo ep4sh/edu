@@ -1,4 +1,4 @@
-![Docker](../img/docker.png)
+![Docker](../../img/docker.png)
 # Docker start
   
 #### 0. Для ориентации:

@@ -6,7 +6,7 @@
    * *__Docker Container__* - это запущенный инстанс твоего имиджа
    * *__Docker Service__* - часть распределнного приложения, управляются .yaml-файлами
 
-#### 1. Установить Docker
+#### 1. [Установить Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1)
 
 #### 2. Создать директорию, в ней написать *Dockerfile*
 

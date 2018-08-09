@@ -2,7 +2,7 @@
 
 # Mikrotik. MTCNA. Настройка. Дефолтная и пустая конфигурации. Обновлене конфига.
 
-![Mikrotik](../../img/Mik-conf.png)
+![Mikrotik](Mik-conf.png)
 
 1. Web
 2. Winbox

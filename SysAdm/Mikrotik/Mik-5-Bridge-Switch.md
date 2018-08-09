@@ -18,7 +18,7 @@
   * Port -> Genereal -> Hardware offload
   * Мастер-порта больше нет!
 
-** DNS **
+**DNS**
 
 ```
 Ip->DNS

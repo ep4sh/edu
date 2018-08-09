@@ -1,3 +1,4 @@
+![Docker](../../img/docker.png)
 # Must have info about Docker
 
 #### Чтобы выйти из контейнера а он остался запущенным нужно в shell нажать комбинацию клавиш :

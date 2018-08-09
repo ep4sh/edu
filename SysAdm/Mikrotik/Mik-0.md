@@ -1,4 +1,4 @@
-![Linux](../../img/Mik.png)
+![Mikrotik](../../img/Mik.png)
 
 # Mikrotik. RouterBoard, CloudCore, маркировка и тп
 

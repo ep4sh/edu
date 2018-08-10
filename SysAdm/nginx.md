@@ -1,4 +1,4 @@
-![Nginx](../../img/nginx.png)
+![Nginx](../img/nginx.png)
 
 # Nginx
 

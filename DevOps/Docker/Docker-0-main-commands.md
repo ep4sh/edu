@@ -1,3 +1,6 @@
+![Docker](../../img/docker.png)
+# Docker. Основные команды
+
 Просмотретить локальные имиджи:
 ```
 sudo docker images

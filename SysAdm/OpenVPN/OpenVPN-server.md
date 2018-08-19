@@ -91,7 +91,7 @@ openssl rsa -noout -modulus -in pki/private/ca.key | openssl md5
 openssl x509 -noout -modulus -in pki/ca.crt | openssl md5
 ```
 
-Также написал тебе [скриптик]() - сваливаешь все файлы ключей и сертов в кучу и запускаешь:
+Также написал тебе [скриптик](https://github.com/ep4sh/edu/blob/master/SysAdm/OpenVPN/crt2text.sh) - сваливаешь все файлы ключей и сертов в кучу и запускаешь:
 ```
 chmod +x crt2text.sh
 ./crt2text.sh user ca ta

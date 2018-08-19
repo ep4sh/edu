@@ -90,10 +90,57 @@ firewall-cmd --reload
 openssl rsa -noout -modulus -in pki/private/ca.key | openssl md5
 openssl x509 -noout -modulus -in pki/ca.crt | openssl md5
 ```
-
+#### Генерация inline-ключей для клиента.  
 Также написал тебе [скриптик](https://github.com/ep4sh/edu/blob/master/SysAdm/OpenVPN/crt2text.sh) - сваливаешь все файлы ключей и сертов в кучу и запускаешь:
 ```
 chmod +x crt2text.sh
 ./crt2text.sh user ca ta
 ```
+Ииии... собственно сам ```/etc/openvpn/server.conf```:
+```
+port 1194
+proto tcp4
+dev tun
 
+
+ca /etc/openvpn/keys/ca.crt
+cert /etc/openvpn/keys/vpn.crt
+key /etc/openvpn/keys/vpn.key
+dh /etc/openvpn/easy-rsa/pki/dh.pem
+crl-verify /etc/openvpn/easy-rsa/pki/crl.pem
+tls-auth /etc/openvpn/ta.key 0
+cipher AES-256-CBC
+
+
+#подсеть клиентов
+server 10.50.10.0 255.255.255.0
+# Учёт выдачи IP
+ifconfig-pool-persist ipp.txt
+# Маршруты клиентам
+push "route 10.50.10.0 255.255.255.0"
+# DNS клиентам
+push "dhcp-option DNS 10.50.10.1"
+#DNS-суффикс
+push "dhcp-option DOMAIN rxlab.ru"
+# Разрешаем клиентам  соединяться друг с другом
+client-to-client
+# Использование 1 ключа на всех (ВНИМАНИЕ - НЕ БЕЗОПАСНО!)
+duplicate-cn
+# Проверяем состояние клиента
+keepalive 10 120
+# Используем сжатие трафика 
+comp-lzo
+
+persist-key
+persist-tun
+
+# Записи о состоянии подключенных клиентов и т.п.
+status /var/log/openvpn-status.log
+# Уровень логирования 2
+verb 2
+# Количество записей после которых будет производиться запись в лог
+mute 10
+# нет тела ;)
+user nobody
+group nobody
+```

@@ -102,5 +102,23 @@ ln -s /etc/nginx/sites-available/flaskapp2.conf /etc/nginx/sites-enabled/flaskap
 ```
 uwsgi --emperor /etc/uwsgi/vassals
 ```
+********************************************************
 
-Осталось дописать systemd-скрипт)
+Осталось дописать systemd-скрипт)  
+
+Добавляем сам systemd-сервис, например, `/etc/systemd/system/uwsgi-emperor.service` :
+```
+[Unit]
+Description=uWSGI in Emperor mode
+After=syslog.target
+
+[Service]
+ExecStart= /usr/local/bin/uwsgi --emperor /etc/uwsgi/vassals
+ExecStop= /bin/killall uwsgi
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+Обратите внимание на `/usr/local/bin/uwsgi --emperor /etc/uwsgi/vassals` - использовать именно его а не `/usr/bin/uwsgi` - получил головную боль при отладке.

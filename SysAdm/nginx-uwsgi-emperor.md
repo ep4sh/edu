@@ -1,4 +1,7 @@
-# Основано на [nginx+uwsgi](https://github.com/ep4sh/edu/blob/master/SysAdm/nginx-uwsgi.md)
+# Настройка UWSGI EMPEROR (Nginx+uwsgi+Emperor)
+
+### Основано на [nginx+uwsgi](https://github.com/ep4sh/edu/blob/master/SysAdm/nginx-uwsgi.md)  
+
 В качестве frontend-сервера крутится Nginx.  
 А хотим многого - PYTHON приложений, например Flask`овых, запущенных на одном сервере:
 

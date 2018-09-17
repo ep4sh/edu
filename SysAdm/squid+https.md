@@ -114,7 +114,8 @@ http_access allow localnet
 http_access deny all
 
 # Squid normally listens to port 3128
-#http_port 3128
+# важный параметр, помимо intercept`a
+http_port 3128
 
 
 http_port 192.168.1.178:3128 intercept
@@ -143,7 +144,12 @@ refresh_pattern .		0	20%	4320
 
 ```
 
-
+### Важно!
+##### Создать 2 файла логов и выставить максимальные права (
+```
+root@mail:/usr/local/squid/etc# touch /usr/local/squid/var/logs/{access,cache}.log
+root@mail:/usr/local/squid/etc# chmod 777 /usr/local/squid/var/logs/{access,cache}.log
+```
 
 Заворачиваем на свкид HTTP и HTTPS трафан (192.168.1.178 -- наша машина со сквидом) :
 ```

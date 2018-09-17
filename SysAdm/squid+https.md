@@ -114,11 +114,11 @@ http_access allow localnet
 http_access deny all
 
 # Squid normally listens to port 3128
-# важный параметр, помимо intercept`a
+# важный параметр, нужен помимо intercept`a
 http_port 3128
 
 
-http_port 192.168.1.178:3128 intercept
+http_port 192.168.1.178:3127 intercept
 https_port 192.168.1.178:3129 intercept ssl-bump cert=/usr/local/squid/etc/squidCA.pem
 
 ssl_bump peek all
@@ -153,8 +153,8 @@ root@mail:/usr/local/squid/etc# chmod 777 /usr/local/squid/var/logs/{access,cach
 
 Заворачиваем на свкид HTTP и HTTPS трафан (192.168.1.178 -- наша машина со сквидом) :
 ```
-iptables -t nat -A PREROUTING -i enp2s0 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.1.178:3128
-iptables -t nat -A PREROUTING -i enp2s0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 192.168.1.178:3129
+iptables -t nat -A PREROUTING -i enp2s0 -p tcp --dport 80 -j DNAT --to 192.168.1.178:3127
+iptables -t nat -A PREROUTING -i enp2s0 -p tcp --dport 443 -j DNAT --to 192.168.1.178:3129
 ```
 
 Помечаем на микротике (наш defult gw) весь проксёвый трафф:

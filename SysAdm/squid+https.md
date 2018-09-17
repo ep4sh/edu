@@ -26,6 +26,33 @@ make all
 make install
 ```
 
+Возможные ошибки при сборке:
+### Раз (ошибка v2 cipher)
+```
+=== modified file 'src/ssl/bio.cc'
+--- src/ssl/bio.cc	2015-09-01 09:25:57 +0000
++++ src/ssl/bio.cc	2015-09-22 15:27:36 +0000
+@@ -1099,9 +1099,7 @@
+ 
+     if (ciphersLen) {
+         const SSL_METHOD *method = SSLv23_method();
+-        int cs = method->put_cipher_by_char(NULL, NULL);
+-        assert(cs > 0);
+-        for (unsigned int i = 0; i < ciphersLen; i += cs) {
++        for (unsigned int i = 0; i < ciphersLen; i += 3) {
+             // The v2 hello messages cipher has 3 bytes.
+             // The v2 cipher has the first byte not null
+             // Because we are going to sent only v3 message we
+```
+### Два (error: 'SSLv3_method' was not declared in this scope)
+```
+//#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
+// const SSL_METHOD *method = TLS_method();
+//#else
+const SSL_METHOD *method = SSLv23_method();
+//#endif
+```
+
 Конфиг Squid: /usr/local/squid/etc/squid.conf
 
 ```

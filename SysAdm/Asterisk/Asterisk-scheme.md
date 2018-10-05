@@ -2,6 +2,10 @@
 
 # Asterisk. Схема
 
+
+DAHDI (Zaptel) -- its the driver layer to support PC telephony cards
+LibPRI - for PRI digital circuits
+
 ### Схема:
 
 ```Софтфон (настройки) -> sip.conf , поиск контекста -> extensions.conf```

@@ -88,3 +88,57 @@ sales@www.rxlab.ru      ep4sh
 root@www.rxlab.ru       ep4sh 
 ```
 
+
+************************************************************
+Элементарный рабочий конфиг:
+
+```
+myhostname = rxlab.ru
+mydomain = rxlab.ru
+myorigin = $mydomain
+mydestination = $myhostname, localhost.$mydomain, $mydomain, mail.$mydomain, www.$mydomain
+mail_spool_directory = /var/spool/mail
+mynetworks = 127.0.0.0/8
+inet_protocols = ipv4
+#alias_maps = hash:/etc/postfix/aliases
+mailbox_command = /usr/bin/procmail
+
+
+strict_rfc821_envelopes = yes
+relay_domains_reject_code = 554
+unknown_address_reject_code = 554
+unknown_client_reject_code = 554
+unknown_hostname_reject_code = 554
+unknown_local_recipient_reject_code = 554
+unknown_relay_recipient_reject_code = 554
+unverified_recipient_reject_code = 554
+
+# Spam control: exclude local clients and authenticated clients
+# from DNSBL lookups.
+    smtpd_recipient_restrictions = permit_mynetworks,
+        permit_sasl_authenticated,
+        # reject_unauth_destination is not needed here if the mail
+        # relay policy is specified under smtpd_relay_restrictions
+        # (available with Postfix 2.10 and later).
+        reject_unauth_destination
+        reject_rbl_client zen.spamhaus.org,
+        reject_rhsbl_reverse_client dbl.spamhaus.org,
+        reject_rhsbl_helo dbl.spamhaus.org,
+        reject_rhsbl_sender dbl.spamhaus.org
+
+```
+
+
+
+************************************
+## Troubleshoot
+
+#### Err:
+```
+Oct 13 13:28:25 rxlab postfix/postdrop[1012]: warning: mail_queue_enter: create file maildrop/234136.1012: Permission denied
+```
+
+#### Solution:
+```
+ chown -R postfix.postdrop /var/spool/postfix
+```

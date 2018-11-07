@@ -11,6 +11,8 @@
         ◦ apt-get install libncurses5-dev uuid uuid-dev unixodbc-dev uuid uuid-dev libasound2-dev libogg-dev libvorbis-dev libcurl4-openssl-dev libical-dev libneon27-dev libsrtp0-dev libspandsp-dev libopus-dev opus-tools libiksemel-dev libiksemel-utils libiksemel3 xmlstarlet libxml2-dev libjansson-dev sqlite3 libsqlite3-dev libpqxx-dev
         ◦  
         ◦ apt install -y doxygen
+        ◦ apt-get install subversion
+          
 Исходники Asterisk
 Asterisk - ядро основной программы 
 Asterisk-addons - дополнительные файлы 
@@ -58,7 +60,7 @@ Core_sound_pack → EN* [x], RU* [x]
 Запуск и остановка Asterisk
 /usr/sbin/asterisk: Файл запускающий Asterisk 
 Если Вы установили Asterisk, можно запустить его командой:
- /usr/src/asterisk -vvvgc
+ /usr/sbin/asterisk -vvvgc
 Остановить Asterisk из  можно командой 'stop now'. 
 Командой без аргументов, Asterisk запускается как демон.
  /usr/sbin/asterisk 
@@ -93,6 +95,7 @@ chmod --recursive u=rwX,g=rX,o= /dev/dahdi
 #----------------------------------------------------
 chown --recursive root:asterisk /etc/asterisk
 chmod --recursive u=rwX,g=rX,o= /etc/asterisk 
+systemctl daemon-reload
 /etc/init.d/asterisk restart 
 Автозагрузка Asterisk
 Различные операционные системы имеют разные способы запуска программ во время загрузки. В директории с исходниками /usr/src/asterisk-VERSION/contrib/init.d содержатся скрипты для запуска в archlinux, debian, gentoo, mandriva, redhat, slackware, suse.

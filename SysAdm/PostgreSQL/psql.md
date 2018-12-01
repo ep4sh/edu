@@ -1,3 +1,5 @@
+![PostgreSQL](../../img/postgresql.png)
+
 ### Подключение:  
 ` psql -d <база> -U <роль> -h <узел> -p <порт>`
 

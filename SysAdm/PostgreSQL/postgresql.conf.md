@@ -1,3 +1,5 @@
+![PostgreSQL](../../img/postgresql.png)
+
 ## Postgresql.conf  
 * Основной конфигурационный файл   
 * Читается при старте  

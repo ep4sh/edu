@@ -30,3 +30,29 @@
  * transfer acceleration - ускорение загрузки в бакет и обратно
  * events - отправка сообщений при опредленных событиях ведра
  * requester pays - кто будет платить (вместо овнера)
+
+
+Создать бакет:
+
+```
+aws s3 mb s3://ep4sh.aabb --profile badm --region us-west-1
+```
+
+
+Залить файл бакет:
+
+```
+aws s3 cp MYFILE.TXT s3://ep4sh.aabb --profile badm
+```
+
+
+Синхронизировать файлы с бакетом:
+
+```
+aws s3 sync . s3://ep4sh.aabb --profile badm
+```
+
+
+
+
+

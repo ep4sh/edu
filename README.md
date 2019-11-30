@@ -3,18 +3,18 @@
 ## About wiki
 
 This wiki contains several how-to examples on popular topics:  
-:x: Ansible  
-:x: Asterisk  
-:x: AWS  
-:x: Docker  
-:x: Jenkins    
-:x: Linux  
-:x: Mikrotik  
-:x: Nginx  
-:x: Pentestin (:trollface:)  
-:x: PosgreSQL  
-:x: Proxy  
-:x: etc.  
+:book: Ansible  
+:book: Asterisk  
+:book: AWS  
+:book: Docker  
+:book: Jenkins    
+:book: Linux  
+:book: Mikrotik  
+:book: Nginx  
+:book: Pentest (:trollface:)  
+:book: PosgreSQL  
+:book: Proxy  
+:book: etc.  
  
 #### AMA in Telegram:   
 ``` @ep4sh  ```
